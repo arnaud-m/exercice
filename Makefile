@@ -32,7 +32,7 @@ inst: all example
 	cp $(EXAMPLE).tex $(UTREE)/doc/latex/$(NAME)
 	cp $(LOGO) $(UTREE)/tex/latex/$(NAME)
 
-install: all 
+install: all example
 	sudo mkdir -p $(LOCAL)/{tex,source,doc}/latex/$(NAME)
 	sudo cp $(NAME).dtx $(LOCAL)/source/latex/$(NAME)
 	sudo cp $(NAME).cls $(LOCAL)/tex/latex/$(NAME)
@@ -40,7 +40,7 @@ install: all
 	sudo cp $(EXAMPLE).tex $(LOCAL)/doc/latex/$(NAME)
 	sudo cp logo-uca.png $(LOCAL)/tex/latex/$(NAME)
 
-zip: all 
+zip: all
 	ln -sf . $(NAME)
 	zip -Drq $(PWD)/$(NAME)-$(VERS).zip $(NAME)/{README,$(NAME).{pdf,cls,dtx}} $(NAME)/$(EXAMPLE).tex $(NAME)/$(LOGO)
 	rm $(NAME)
